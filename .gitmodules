@@ -1,0 +1,3 @@
+[submodule "WurstDB"]
+	path = WurstDB
+	url = git@github.com:Freiwurst/WurstDB.git

@@ -12,7 +12,7 @@ parser.add_argument('-c', '--count', type=int, default=1,
                     help='number of coupons to print')
 parser.add_argument('-v', '--volume', type=int, default=1,
                     help='number of wursts you get with the coupon')
-parser.add_argument('-f', '--flavour', type=str, default='Get a Freiwurst at our assembly!',
+parser.add_argument('-f', '--flavour', type=str, default='Get a Freiwurst at our assembly!\nTAKE THIS WITH YOU!',
                     help='flavour text to print below the QR code')
 parser.add_argument('--method', type=str, default='coupon',
                     help='method of the wurst code, used inside the WurstDB')

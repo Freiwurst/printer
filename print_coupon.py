@@ -14,6 +14,8 @@ parser.add_argument('-v', '--volume', type=int, default=1,
                     help='number of wursts you get with the coupon')
 parser.add_argument('-f', '--flavour', type=str, default='Get a Freiwurst at our assembly!\nTAKE THIS WITH YOU!',
                     help='flavour text to print below the QR code')
+parser.add_argument('--angel', action='store_true',
+                    help='Angel Edition')
 parser.add_argument('--method', type=str, default='coupon',
                     help='method of the wurst code, used inside the WurstDB')
 parser.add_argument('--url', type=str, default='https://www.freiwurst.net/qr/',
@@ -39,9 +41,15 @@ def print_coupon(printer, qr_string, text, volume):
     # print the text
     printer.text(text + '\n\n')
 
+    if args.angel:
+        printer.set(align='center', height=4, width=4, text_type='B', invert=True)
+        printer.text('FOR ANGELS\n\n')
+        printer.set(align='center')
+
     # print the date and the volume
     # maximum print width is 42 characters with default text size
     printer.text('{:<37s}{:>5s}'.format(datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%dT%H:%M:%S'), str(args.volume)))
+
 
     # cut off the receipt
     printer.cut()

@@ -29,6 +29,10 @@ parser.add_argument('--usbproduct', type=int, default=0x0e02,
 
 
 def print_coupon(printer, qr_string, text, volume):
+    printer.set(align='center', height=4, width=4, text_type='B', invert=True)
+    printer.text(' WURSTCHER\n\n')
+    printer.set(align='center')
+
     # set printing style to a defined state
     printer.set(align='center')
 
